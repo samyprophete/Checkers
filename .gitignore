@@ -1,0 +1,6 @@
+node_modules/
+.DS_Store
+out.txt
+test_out.json
+test_out2.json
+test_king_out.txt

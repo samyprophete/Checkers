@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jeu de Dames — Checkers avec IA, captures obligatoires et mode sombre élégant.">
+    <title>Jeu de Dames</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>♟️</text></svg>">
+</head>
+
+<body>
+
+    <!-- FX Particle Canvas -->
+    <canvas id="fx-canvas"></canvas>
+
+    <!-- Background Video -->
+    <video id="bg-video" autoplay muted loop playsinline>
+        <source src="247733_medium.mp4" type="video/mp4">
+    </video>
+    <div id="bg-overlay"></div>
+
+    <!-- Wipe Transition Overlay -->
+    <div id="wipe-overlay"></div>
+
+    <!-- Game Over Video -->
+    <div id="gameover-video-container">
+        <video id="gameover-video" playsinline>
+            <source src="game over.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Combo Text -->
+    <div id="combo-text"></div>
+
+    <div id="app">
+        <h1>♟ Jeu de Dames <span>— Checkers</span></h1>
+        <div id="status-bar" class="glass">
+            <div class="status-group">
+                <span class="piece-icon white-icon"></span>
+                <span id="white-count" class="count">12</span>
+            </div>
+            <span id="turn-text" class="white-turn">⬤ Ton tour</span>
+            <div class="status-group">
+                <span id="black-count" class="count">12</span>
+                <span class="piece-icon black-icon"></span>
+            </div>
+        </div>
+        <div id="board-wrapper">
+            <div id="board"></div>
+        </div>
+        <div id="ai-thinking">
+            <span class="thinking-label">IA</span>
+            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+        <div id="history-panel" class="glass">
+            <h3>Historique</h3>
+            <div id="history-list"></div>
+        </div>
+        <button id="btn-restart" class="btn btn-outline" style="margin-top:4px;">↻ Nouvelle partie</button>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal-overlay">
+        <div id="start-modal" class="modal visible">
+            <h2>♟ Jeu de Dames</h2>
+            <p>Choisis ton mode de jeu</p>
+            <div class="btn-row">
+                <button id="btn-easy" class="btn btn-primary">🌱 Facile</button>
+                <button id="btn-hard" class="btn btn-secondary">🧠 Difficile</button>
+            </div>
+            <div class="modal-divider">ou</div>
+            <div class="btn-row">
+                <button id="btn-local" class="btn btn-local">🎮 2 Joueurs</button>
+            </div>
+        </div>
+        <div id="end-modal" class="modal">
+            <span class="winner-icon">🏆</span>
+            <h2 id="end-title">Victoire !</h2>
+            <p id="end-msg">Félicitations !</p>
+            <div class="btn-row">
+                <button id="btn-restart2" class="btn btn-primary">↻ Rejouer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GSAP -->
+    <script src="gsap-public/gsap-public/minified/gsap.min.js"></script>
+    <script src="gsap-public/gsap-public/minified/Draggable.min.js"></script>
+    <!-- Game -->
+    <script src="engine.js"></script>
+    <script src="ai.js"></script>
+    <script src="fx.js"></script>
+    <script src="ui.js"></script>
+</body>
+
+</html>
